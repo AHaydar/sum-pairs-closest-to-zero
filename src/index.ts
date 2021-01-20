@@ -3,21 +3,20 @@ export const getPairWithSumClosestToZero = (arr: number[]) => {
     throw new Error('Array must contain at least 2 numbers');
   }
 
-  let minSum = Math.abs(arr[0] + arr[1]);
-  let tempSum: number;
-  const result = { firstElem: arr[0], secondElem: arr[1] };
+  arr.sort((a, b) => Math.abs(b) - Math.abs(a));
 
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      tempSum = Math.abs(arr[i] + arr[j]);
-      if (tempSum < minSum) {
-        result.firstElem = arr[i];
-        result.secondElem = arr[j];
-        minSum = tempSum;
-      }
+  let x = 0;
+  let y = 0;
+  let min = Number.MAX_SAFE_INTEGER;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (Math.abs(arr[i - 1] + arr[i]) <= min) {
+      min = Math.abs(arr[i - 1] + arr[i]);
+      x = i - 1;
+      y = i;
     }
   }
-  return result;
+  return { firstElem: arr[x], secondElem: arr[y] };
 };
 
 export const sum = (a: number, b: number) => {

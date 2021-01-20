@@ -15,8 +15,8 @@ describe('getPairWithSumClosestToZero', () => {
     const arr7 = [-11, 0, 12, -13, 10];
 
     expect(getPairWithSumClosestToZero(arr1)).toEqual({
-      firstElem: -8,
-      secondElem: -60,
+      firstElem: -60,
+      secondElem: -8,
     });
     expect(getPairWithSumClosestToZero(arr2)).toEqual({
       firstElem: -18,
@@ -37,12 +37,12 @@ describe('getPairWithSumClosestToZero', () => {
 
     // when the sum of 2 pairs are equal the first pair will be picked as we're using a strict less than in the algorithm.
     expect(getPairWithSumClosestToZero(arr6)).toEqual({
-      firstElem: -13,
-      secondElem: 12,
+      firstElem: -11,
+      secondElem: 10,
     });
     expect(getPairWithSumClosestToZero(arr7)).toEqual({
       firstElem: -11,
-      secondElem: 12,
+      secondElem: 10,
     });
   });
   it('should throw an error', () => {
